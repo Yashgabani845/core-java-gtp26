@@ -50,4 +50,23 @@ there are 5 types of inheritance
     we can only implements many interfaces in one subclass.
     we can not extends abstract class or simple classes more than one into one subclass.
 
+2)Collections framework in java
+✔ ArrayList — best for:
+Students list
+Products list
+Results list
+Any collection where reading is more than modifying
+✔ LinkedList — best for:
+Queue / Task Scheduler
+Implementing Stacks, Queues, Deques
+Playlists where songs are inserted/removed frequently
+
+Set :- dont store duplicates values
+Set is interface in Collection
+Set has 3 implementations
+1)HashSet :- dont do duplicate,order not preserved
+2)LinkedHashSet:- dont do duplicate,order preserved and based on insertion operation
+3)TreeSet:-dont do duplicate,order preserved and based on sorting
+ by default sorting done in non-decreasing order, we can change it by specifying comparator.
+ for chaing default sorting order, we can use Collections.reverseOrder() .
 
