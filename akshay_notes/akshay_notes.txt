@@ -1,0 +1,53 @@
+1)OOPS (object oriented programming in java)
+there are 4 things to be learn
+
+1)abstractions
+interface Animal(){ write common methods which need to be in Animal and common behaviours}
+abstract class
+abstract Human(){
+    abstract void run(); //must be implement
+    void walk(){ //we can implement here too }
+}
+
+when to use which?
+interface :- you want totally abstraction and independency of code.
+abstract class :- you want to provide partial implementation to subclasses.
+
+2)encapsulation
+you are hiding variables and behavior of you class from outside it is called encapsulation of your data.
+we can do it with abstraction and it called encapsulation.
+
+3)polymorphism
+polymorphism means many forms.
+it is two types of polymorphism
+i)runtime polymorphism :- overwriting
+ii)compile time polymorphism :- overloading
+
+4)inheritance
+there are 5 types of inheritance
+ i)single inheritance
+       p
+       /\
+       |
+       C
+ ii)multilevel inheritance
+            p
+           /\
+           |
+           s1
+           /\
+           |
+           C
+
+ iii)hierarchical inheritance
+           P
+         /\ /\
+         /   \
+        /     \
+        c1    c2
+  iv) hybrid inheritance :- it is combined version of two or more type of inheritance
+  v)multiple inheritance:- many parents inherent in one child
+    we can only implements many interfaces in one subclass.
+    we can not extends abstract class or simple classes more than one into one subclass.
+
+
