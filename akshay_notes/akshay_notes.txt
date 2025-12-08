@@ -68,5 +68,5 @@ Set has 3 implementations
 2)LinkedHashSet:- dont do duplicate,order preserved and based on insertion operation
 3)TreeSet:-dont do duplicate,order preserved and based on sorting
  by default sorting done in non-decreasing order, we can change it by specifying comparator.
- for chaing default sorting order, we can use Collections.reverseOrder() .
+ for changing default sorting order, we can use Collections.reverseOrder() .
 
