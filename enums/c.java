@@ -41,6 +41,11 @@ public class c {
         // can't create enum object using new object for constants already created when class loaded
         // for the first time, fixed object
 
+
+        // when first time class loading happens it call constructor for all constants why ??
+        // Because Java creates all enum constants eagerly during class initialization and
+        // Enums cannot create constants lazily.
+
         Status s = Status.STARTED;
         s.display();
         s.print();
