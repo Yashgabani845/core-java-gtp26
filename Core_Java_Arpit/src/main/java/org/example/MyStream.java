@@ -61,5 +61,14 @@ public class MyStream {
         empList.stream()
                 .filter(emp -> emp.salary > 150000)
                 .forEach(System.out::println);
+
+
+        // Lmabda with streams
+        List<Integer> nums = Arrays.asList(1,2,3,4,5);
+        nums.stream()
+                .filter(n -> n % 2 == 0)          // Predicate
+                .map(n -> n * 10)                 // Function
+                .forEach(x -> System.out.println(x)); // Consumer
+
     }
 }
