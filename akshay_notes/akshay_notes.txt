@@ -80,3 +80,24 @@ Best Used In	Streams, comparators, callbacks
 Avoid In	Long/complex logic, checked exceptions, early-break logic
 
 functional interfaces and it methods
+Runnable: Its abstract method is void run(), which defines a task to be executed.
+Callable<V>: Its abstract method is V call() throws Exception, which defines a task that returns a result and can throw an exception.
+Comparator<T>: Its abstract method is int compare(T o1, T o2), used for comparing two objects.
+Consumer<T>: Its abstract method is void accept(T t), used for performing an operation on a single input argument.
+Predicate<T>: Its abstract method is boolean test(T t), used for evaluating a condition on a single input argument.
+Function<T, R>: Its abstract method is R apply(T t), used for transforming an input of type T into a result of type R.
+
+Executors
+1)newFixedThreadPool(n)
+A thread pool with exactly n threads.
+Threads are reused for all submitted tasks.
+2)newCachedThreadPool
+A pool that creates new threads as needed, and reuses old ones.
+3)newSingleThreadExecutor
+A pool with only ONE thread.
+4)newScheduledThreadPool
+A pool for running delayed or periodic tasks.
+scheduler.scheduleAtFixedRate(() -> {
+    System.out.println("Running...");
+}, 0, 5, TimeUnit.SECONDS);
+
