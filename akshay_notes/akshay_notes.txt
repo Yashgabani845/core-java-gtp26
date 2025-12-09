@@ -70,3 +70,13 @@ Set has 3 implementations
  by default sorting done in non-decreasing order, we can change it by specifying comparator.
  for changing default sorting order, we can use Collections.reverseOrder() .
 
+
+Lambda functions
+Topic	Meaning
+What is Lambda?	Short anonymous function
+Why?	Less code, functional style
+Works with?	Functional interfaces
+Best Used In	Streams, comparators, callbacks
+Avoid In	Long/complex logic, checked exceptions, early-break logic
+
+functional interfaces and it methods
