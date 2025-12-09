@@ -100,4 +100,10 @@ A pool for running delayed or periodic tasks.
 scheduler.scheduleAtFixedRate(() -> {
     System.out.println("Running...");
 }, 0, 5, TimeUnit.SECONDS);
+-> task execute at duration of 5 second,it executes next task even though past task is not finished.
+scheduler.scheduleWithFixedDelay(task,initial delay,delay,TimeUnit.SECONDS)
+->task1 finished then delay and then new task will start.
+scheduler.schedule(task,delay,timeunit)
+->after given delay , task run once time
+
 
