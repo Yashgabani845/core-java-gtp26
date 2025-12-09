@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class main {
     public static void main(String[] args) {
@@ -14,48 +15,62 @@ public class main {
         t1.start();
         t2.start();
         t4.start();
-
-
-
     }
 }
 
 
 class Account {
-    int total_balance = 1000;
+    // boolean success = false;   // removed, must not be shared between threads
+
+    //   volatile int total_balance = 1000;
+    AtomicInteger total_balance = new AtomicInteger(1000);
     String name;
 
     public Account(String name) {
         this.name = name;
     }
 
-   synchronized void withdrawn(int amount) {
-        if (total_balance >= amount) {
-            System.out.println("Withdrawing amoutn rs:" + amount);
+    void withdrawn(int amount) {
+        boolean success = false; // <-- moved here, thread-local
 
-            total_balance = total_balance - amount;
-            System.out.println("Balance left " + total_balance);
+//        if (total_balance >= amount) {
+//            System.out.println("Withdrawing amoutn rs:" + amount);
+//            total_balance = total_balance - amount;
+
+        while (!success) {
+            int current = total_balance.get();
+            if (current >= amount) {
+
+                // CAS only, do NOT subtract twice
+                success = total_balance.compareAndSet(current, current - amount);
+
+                if (success) {
+                    System.out.println("Balance left " + total_balance);
+                }
+
 //            try {
 //                Thread.sleep(1000);
 //            }
 //            catch (InterruptedException e) {
 //                e.printStackTrace();
 //            }
-        } else {
-            System.out.println("Insufficient Balance" + total_balance);
+            } else {
+                System.out.println("Insufficient Balance" + total_balance);
 //            try {
 //                Thread.sleep(1000);
 //            }
 //            catch (InterruptedException e) {
 //                e.printStackTrace();
 //            }
+                return;  // <-- important: stop when insufficient
+            }
         }
-
     }
 
-  synchronized   void deposite(int amount) {
+    void deposite(int amount) {
         System.out.println("Amount Added " + amount);
-        total_balance = total_balance + amount;
+//        total_balance = total_balance + amount;
+        total_balance.addAndGet(amount);
         System.out.println("Balance = " + total_balance);
 //        try {
 //            Thread.sleep(1000);
