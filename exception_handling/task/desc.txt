@@ -1,0 +1,5 @@
+Apply concept of user defined exception to create a console based Java application that satisfies
+the given requirements: the application accepts N number of command line arguments and does sum of all those
+ which are numbers. However, for any invalid argument, the application throws user-defined/custom exception
+ called InvalidNumber containing appropriate message and then the program continues processing with
+ the next argument. Also show sample input/output for one test case covering the specified requirements.
